@@ -30,14 +30,14 @@ export class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    name: '',
-    number: ''
+    // name: '',
+    // number: ''
   };
 
-  handleChange = (evt) => {
-    const { name, value } = evt.target;
-    this.setState({ [name]: value });
-  };
+  // handleChange = (evt) => {
+  //   const { name, value } = evt.target;
+  //   this.setState({ [name]: value });
+  // };
 
   handleSubmit = (evt) => {
     const id = nanoid();
