@@ -55,7 +55,7 @@ export class App extends Component {
     this.setState({ contacts: contactsLists });
   };
 
-  // удаление назвать ближе к ид
+  // удаление (назвать ближе к ид)
   handleDelete = (evt) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== evt),
