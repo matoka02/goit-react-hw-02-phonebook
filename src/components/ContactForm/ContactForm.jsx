@@ -8,17 +8,26 @@ class ContactForm extends Component {
     number: '',
   };
 
+  // слушатель инпуты ввода
   handleChange = ({ target }) => {
     // const {name, value} = evt.target;
     // this.setState({[name]: value})
+    console.log(target.value);
     this.setState({ [target.name]: target.value });
   };
 
+  // добавление
   handleSubmit = evt => {
     evt.preventDefault();
-    const form = evt.currentTarget;
+    // const form = evt.currentTarget;
+    // form.reset();
     this.props.handleSubmit(this.state);
-    form.reset();
+    this.setState({
+      name: '',
+      number: ''
+    })
+    // console.log(evt.currentTarget);
+    // console.log(this.props.handleSubmit(this.state));
   };
 
   render() {

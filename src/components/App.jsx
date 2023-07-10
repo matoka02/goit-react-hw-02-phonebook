@@ -30,15 +30,18 @@ export class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    // name: '',
-    // number: ''
+    name: '',
+    number: ''
   };
 
-  // handleChange = (evt) => {
-  //   const { name, value } = evt.target;
-  //   this.setState({ [name]: value });
-  // };
+    // слушатель инпуты ввода
+  handleChange = (evt) => {
+    const { name, value } = evt.target;
+    this.setState({ [name]: value });
+    console.log(evt.target.value);
+  };
 
+  // проверка на дубликаты
   handleSubmit = (evt) => {
     const id = nanoid();
     const name = evt.name;
@@ -54,25 +57,30 @@ export class App extends Component {
     this.setState({ contacts: contactsLists });
   };
 
+  // удаление
   handleDelete = (evt) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== evt),
     }));
   };
 
+  // фильтр по поиску
   getFilteredContacts = () => {
     const filterContactsList = this.state.contacts.filter(contact => {
+      // console.log(contact.name);
       return contact.name
         .toLowerCase()
         .includes(this.state.filter.toLowerCase());
     });
-
+      // console.log(this.state.contacts);
+      console.log(this.state.filter);
     return filterContactsList;
   };
 
 
   render() {
     const { filter } = this.state;
+    console.log(filter);
 
     return (
       <div
