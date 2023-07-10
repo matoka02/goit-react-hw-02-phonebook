@@ -30,16 +30,22 @@ export class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    name: '',
-    number: ''
+    // name: '',
+    // number: ''
   };
 
-    // слушатель инпуты ввода
-  handleChange = (evt) => {
-    const { name, value } = evt.target;
-    this.setState({ [name]: value });
-    console.log(evt.target.value);
-  };
+  //   // слушатель инпуты ввода
+  // handleChange = (evt) => {
+  //   const { name, value } = evt.target;
+  //   this.setState({ [name]: value });
+  //   console.log(evt.target.name, evt.target.value);
+  // };
+
+    // слушатель на инпут ввода
+    handleSearch = ({ target }) => {
+      // console.log(target.value);
+      this.setState({ [target.name]: target.value });
+    };
 
   // проверка на дубликаты
   handleSubmit = (evt) => {
@@ -79,8 +85,8 @@ export class App extends Component {
 
 
   render() {
-    const { filter } = this.state;
-    console.log(filter);
+    // const { filter } = this.state;
+    // console.log(filter);
 
     return (
       <div
@@ -100,8 +106,8 @@ export class App extends Component {
         />
         <h2> Contacts</h2>
         <Filter 
-        filter={filter} 
-        handleChange={this.handleChange} 
+        filter={this.state.filter} 
+        handleSearch={this.handleSearch} 
         />
         <ContactList
           contacts={this.getFilteredContacts()}

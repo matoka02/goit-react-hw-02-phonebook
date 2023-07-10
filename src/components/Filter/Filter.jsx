@@ -2,7 +2,7 @@ import React from "react";
 import propTypes from 'prop-types';
 import css from './Filter.module.css';
 
-const Filter = ({ filter, handleChange }) => (
+const Filter = ({ filter, handleSearch }) => (
     <div>
         <label className={css.filterLabel}>Find contacts by Name </label>
         <input 
@@ -11,7 +11,7 @@ const Filter = ({ filter, handleChange }) => (
         name="filter" 
         placeholder="Enter filter" 
         value={filter} 
-        onChange={handleChange}/>
+        onChange={handleSearch}/>
     </div>
 );
 
