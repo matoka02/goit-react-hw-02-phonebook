@@ -1,3 +1,9 @@
+.contactListItem {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
 .contactListItemBtn {
     min-width: 50px;
     height: 36px;

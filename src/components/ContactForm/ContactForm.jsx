@@ -8,7 +8,7 @@ class ContactForm extends Component {
     number: '',
   };
 
-  // слушатель на инпуты ввода
+  // слушатель на инпуты ввода (для добавления)
   handleChange = ({ target }) => {
     // console.log(target.value);
     this.setState({ [target.name]: target.value });

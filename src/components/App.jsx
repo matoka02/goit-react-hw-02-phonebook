@@ -20,6 +20,7 @@ import { nanoid } from "nanoid";
 import ContactForm from "./ContactForm/ContactForm";
 import Filter from "./Filter/Filter";
 import ContactList from "./ContactList/ContactList";
+import { ContactListItem } from "./ContactListItem/ContactListItem";
 
 export class App extends Component {
   state = {
@@ -30,18 +31,9 @@ export class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    // name: '',
-    // number: ''
   };
 
-  //   // слушатель инпуты ввода
-  // handleChange = (evt) => {
-  //   const { name, value } = evt.target;
-  //   this.setState({ [name]: value });
-  //   console.log(evt.target.name, evt.target.value);
-  // };
-
-    // слушатель на инпут ввода
+    // слушатель на инпут ввода (для поиска)
     handleSearch = ({ target }) => {
       // console.log(target.value);
       this.setState({ [target.name]: target.value });
@@ -63,7 +55,7 @@ export class App extends Component {
     this.setState({ contacts: contactsLists });
   };
 
-  // удаление
+  // удаление назвать ближе к ид
   handleDelete = (evt) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== evt),
@@ -85,9 +77,6 @@ export class App extends Component {
 
 
   render() {
-    // const { filter } = this.state;
-    // console.log(filter);
-
     return (
       <div
         style={{
@@ -111,8 +100,12 @@ export class App extends Component {
         />
         <ContactList
           contacts={this.getFilteredContacts()}
-          handleDelete={this.handleDelete}
-        />
+          // handleDelete={this.handleDelete}
+        >
+          <ContactListItem 
+            handleDelete={this.handleDelete}
+          />
+        </ContactList>
       </div>
     );
   }
