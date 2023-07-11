@@ -20,7 +20,6 @@ import { nanoid } from "nanoid";
 import ContactForm from "./ContactForm/ContactForm";
 import Filter from "./Filter/Filter";
 import ContactList from "./ContactList/ContactList";
-import { ContactListItem } from "./ContactListItem/ContactListItem";
 
 export class App extends Component {
   state = {
@@ -33,11 +32,11 @@ export class App extends Component {
     filter: '',
   };
 
-    // слушатель на инпут ввода (для поиска)
-    handleSearch = ({ target }) => {
-      // console.log(target.value);
-      this.setState({ [target.name]: target.value });
-    };
+  // слушатель на инпут ввода (для поиска)
+  handleSearch = ({ target }) => {
+    // console.log(target.value);
+    this.setState({ filter: target.value });
+  };
 
   // проверка на дубликаты
   handleSubmit = (evt) => {
@@ -71,7 +70,7 @@ export class App extends Component {
         .includes(this.state.filter.toLowerCase());
     });
       // console.log(this.state.contacts);
-      console.log(this.state.filter);
+      // console.log(this.state.filter);
     return filterContactsList;
   };
 
@@ -100,15 +99,11 @@ export class App extends Component {
         />
         <ContactList
           contacts={this.getFilteredContacts()}
-          // handleDelete={this.handleDelete}
-        >
-          <ContactListItem 
-            handleDelete={this.handleDelete}
-          />
-        </ContactList>
+          handleDelete={this.handleDelete}
+        ></ContactList>
       </div>
     );
   }
 
-}
+};
 

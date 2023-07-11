@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
 
-const ContactList = ({ contacts }) => (
+const ContactList = ({ contacts, handleDelete }) => (
   <div>
     <ul>
       {contacts.map((contact, id) => (
@@ -20,7 +20,8 @@ const ContactList = ({ contacts }) => (
         key={contact.id} 
         name={contact.name} 
         number={contact.number} 
-        // onClick={() => handleDelete(contact.id)}
+        id={contact.id}
+        handleDelete={handleDelete}
         />
       ))}
     </ul>
@@ -35,7 +36,7 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  // handleDelete: propTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default ContactList;
