@@ -9,7 +9,7 @@ export const ContactListItem = ({ id, name, number, handleDelete }) => (
 		<button 
 			type="submit"
 			className={css.contactListItemBtn}
-			onClick={handleDelete}
+			onClick={() => handleDelete(id)}
 		>
 		Delete
 	</button>
